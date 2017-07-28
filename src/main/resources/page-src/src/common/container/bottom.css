@@ -1,0 +1,11 @@
+.bottom {
+  height: 24px;
+  text-align: center;
+  display: inline-block;
+}
+.ant-layout-footer {
+  padding: 14px;
+}
+.text {
+  margin-top: -12px;
+}
