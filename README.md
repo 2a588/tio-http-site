@@ -15,6 +15,9 @@
 1. 导入工程到eclipse，注意把resources目录编译过去，否则会报错
 2. 以普通java程序的方式运行org.tio.site.AppStarter即可，启动时间应该在1秒内，如果大于这个时间，那可能环境有问题
 3. 访问[http://127.0.0.1](http://127.0.0.1)
+4. 界面如下
+![](https://git.oschina.net/tywo45/t-io/raw/master/docs/tio-site/1.png)
+![](https://git.oschina.net/tywo45/t-io/raw/master/docs/tio-site/2.png)
 
 #说明
 1. 第一次用JFinal作为Dao，用得不对的地方，多多指教
