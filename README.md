@@ -12,10 +12,17 @@
 2. 初始化脚本在resources\sql\tio_site.sql，请执行一下
 
 #启动
+
+###启动方式一：快速启动
+
+1. 执行dist目录下的startup.bat即可
+2. 访问[http://127.0.0.1](http://127.0.0.1)
+
+###启动方式二：源代码启动
 1. 导入工程到eclipse，注意把resources目录编译过去，否则会报错
 2. 以普通java程序的方式运行org.tio.site.AppStarter即可，启动时间应该在1秒内，如果大于这个时间，那可能环境有问题
 3. 访问[http://127.0.0.1](http://127.0.0.1)
-4. 界面如下
+#界面
 ![](https://git.oschina.net/tywo45/t-io/raw/master/docs/tio-site/1.png)
 ![](https://git.oschina.net/tywo45/t-io/raw/master/docs/tio-site/2.png)
 
