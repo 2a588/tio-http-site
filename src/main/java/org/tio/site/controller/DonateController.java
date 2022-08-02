@@ -3,18 +3,15 @@ package org.tio.site.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.ChannelContext;
-import org.tio.http.common.HttpPacket;
-import org.tio.http.common.HttpSessionContext;
-import org.tio.http.common.http.HttpRequestPacket;
-import org.tio.http.common.http.HttpResponsePacket;
-import org.tio.http.server.HttpServerConfig;
+import org.tio.http.common.*;
+import org.tio.http.common.session.HttpSession;
 import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.util.Resps;
-import org.tio.json.Json;
 import org.tio.site.model.Donate;
 import org.tio.site.service.DonateService;
 
 import com.jfinal.plugin.activerecord.Page;
+import org.tio.utils.json.Json;
 
 /**
  * @author tanyaowu 
@@ -34,12 +31,12 @@ public class DonateController {
 	}
 
 	@RequestPath(value = "/page")
-	public HttpResponsePacket page(Integer pageNumber, Integer pageSize, HttpRequestPacket httpRequestPacket, HttpServerConfig httpServerConfig,
-			ChannelContext<HttpSessionContext, HttpPacket, Object> channelContext) throws Exception {
+	public HttpResponse page(Integer pageNumber, Integer pageSize, HttpRequest httpRequestPacket, HttpConfig httpServerConfig,
+			ChannelContext channelContext) throws Exception {
 		Page<Donate> page = srv.page(pageNumber, pageSize);
-		HttpResponsePacket ret = Resps.json(httpRequestPacket, Json.toJson(page), httpServerConfig.getCharset());
-		ret.addHeader("Access-Control-Allow-Origin", "*");
-		ret.addHeader("Access-Control-Allow-Headers", "x-requested-with,content-type");
+		HttpResponse ret = Resps.json(httpRequestPacket, Json.toJson(page), httpServerConfig.getCharset());
+		ret.addHeader(HeaderName.Access_Control_Allow_Origin,HeaderValue.from("Access-Control-Allow-Origin"));
+		ret.addHeader(HeaderName.Access_Control_Allow_Headers ,HeaderValue.from("x-requested-with,content-type"));
 		return ret;
 	}
 
