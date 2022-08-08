@@ -40,12 +40,12 @@ public class JfinalInit {
 		try {
 			final String URL = PropKit.get("db01.jdbc.url");
 			final String USERNAME = PropKit.get("db01.jdbc.username");
-			String PASSWORD;
-			try {
-				PASSWORD = ConfigTools.decrypt(PropKit.get("db01.jdbc.password"));
-			} catch (Exception e) {
-				throw new RuntimeException(e);
-			}
+			final String PASSWORD= PropKit.get("db01.jdbc.password");
+//			try {
+////				PASSWORD = ConfigTools.decrypt(PropKit.get("db01.jdbc.password"));
+//			} catch (Exception e) {
+//				throw new RuntimeException(e);
+//			}
 			final Integer INITIALSIZE = PropKit.getInt("db.jdbc.pool.initialSize");
 			final Integer MIDIDLE = PropKit.getInt("db.jdbc.pool.minIdle");
 			final Integer MAXACTIVEE = PropKit.getInt("db.jdbc.pool.maxActive");
@@ -69,7 +69,7 @@ public class JfinalInit {
 				arp.setShowSql(true);
 			}
 			arp.setBaseSqlTemplatePath(PathKit.getRootClassPath() + File.separator + PropKit.get("sqlfile"));
-			arp.addSqlTemplate("all_sqls.sql");
+			//arp.addSqlTemplate("all_sqls.sql");
 			arp.start();
 		} catch (Exception e) {
 			log.error(e.toString(), e);

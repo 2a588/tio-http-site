@@ -2,6 +2,7 @@ package org.tio.site;
 
 import java.io.IOException;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.site.init.HttpServerInit;
@@ -41,6 +42,7 @@ public class AppStarter {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws Exception {
+		 
 		PropKit.use("app.properties");
 		
 		JfinalInit.init();
