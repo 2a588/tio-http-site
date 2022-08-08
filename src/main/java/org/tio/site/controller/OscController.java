@@ -3,11 +3,7 @@ package org.tio.site.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.core.ChannelContext;
-import org.tio.http.common.HttpPacket;
-import org.tio.http.common.session.HttpSession;
-import org.tio.http.common.HttpRequest;
-import org.tio.http.common.HttpResponse;
-import org.tio.http.common.HttpConfig;
+import org.tio.http.common.*;
 import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.util.Resps;
 
@@ -34,10 +30,14 @@ public class OscController {
 	}
 
 	/**
-	 * @param args
-	 * @author: tanyaowu
+	 *
+	 * @author: hong.chen
 	 */
-	public static void main(String[] args) {
-
+	@RequestPath(value = "")
+	public HttpResponse main(HttpRequest httpRequestPacket, HttpConfig httpServerConfig, ChannelContext channelContext) throws Exception {
+		HttpResource body =  httpServerConfig.getResource(httpRequestPacket,"/page/index.html");
+		HttpResponse ret2 = Resps.json(httpRequestPacket, "222222ok", httpServerConfig.getCharset());
+		HttpResponse ret = Resps.html(httpRequestPacket, String.valueOf(body), httpServerConfig.getCharset());
+		return ret;
 	}
 }
