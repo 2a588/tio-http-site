@@ -4,9 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.common.HttpConfig;
 import org.tio.http.common.handler.HttpRequestHandler;
-import org.tio.http.server.HttpServerStarter;
 import org.tio.http.server.handler.DefaultHttpRequestHandler;
-import org.hongxing.site.HttpServerShowcaseStarter;
+import org.hongxing.site.HttpServerStarter;
 import org.tio.server.TioServerConfig;
 import org.tio.utils.jfinal.P;
 
@@ -22,7 +21,7 @@ public class HttpServerInit {
 
 	public static HttpRequestHandler requestHandler;
 
-	public static HttpServerStarter httpServerStarter;
+	public static org.tio.http.server.HttpServerStarter httpServerStarter;
 
 	public static TioServerConfig serverTioConfig;
 
@@ -39,9 +38,9 @@ public class HttpServerInit {
 		httpConfig.setUseSession(false);
 		httpConfig.setCheckHost(false);
 
-		requestHandler = new DefaultHttpRequestHandler(httpConfig, HttpServerShowcaseStarter.class);//第二个参数也可以是数组
+		requestHandler = new DefaultHttpRequestHandler(httpConfig, HttpServerStarter.class);//第二个参数也可以是数组
 
-		httpServerStarter = new HttpServerStarter(httpConfig, requestHandler);
+		httpServerStarter = new org.tio.http.server.HttpServerStarter(httpConfig, requestHandler);
 		serverTioConfig = httpServerStarter.getTioServerConfig();
 		httpServerStarter.start(); //启动http服务器
 

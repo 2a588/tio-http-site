@@ -8,9 +8,9 @@ import org.tio.utils.jfinal.P;
 import java.io.IOException;
 
 
-public class HttpServerShowcaseStarter {
+public class HttpServerStarter {
 	@SuppressWarnings("unused")
-	private static Logger log = LoggerFactory.getLogger(HttpServerShowcaseStarter.class);
+	private static Logger log = LoggerFactory.getLogger(HttpServerStarter.class);
 
 	/**
 	 * @param args
@@ -27,6 +27,6 @@ public class HttpServerShowcaseStarter {
 	 *
 	 * @author tanyaowu
 	 */
-	public HttpServerShowcaseStarter() {
+	public HttpServerStarter() {
 	}
 }

@@ -6,7 +6,7 @@ import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
 import org.tio.http.common.UploadFile;
 import org.tio.http.server.annotation.RequestPath;
-import org.tio.http.server.showcase.model.User;
+import org.hongxing.site.model.User;
 import org.tio.http.server.util.Resps;
 import org.tio.utils.hutool.FileUtil;
 import org.tio.utils.json.Json;
@@ -50,12 +50,18 @@ public class TextController {
 
 	@RequestPath(value = "/index")
 	public HttpResponse index(HttpRequest request) throws Exception {
+
+
+
+
+
 		HttpResponse ret = Resps.html(request, html);
 		return ret;
 	}
 
 	@RequestPath(value = "/404")
 	public HttpResponse page404(HttpRequest request) throws Exception {
+
 		HttpResponse ret = Resps.html(request, "自定义的404");
 		return ret;
 	}
