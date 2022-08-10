@@ -5,17 +5,17 @@
 		<!-- zip,tar.gz,tar.bz2,jar,dir,war -->
 		<format>dir</format>
 	</formats>
-	
+
 	<includeBaseDirectory>false</includeBaseDirectory>
-  
-	<fileSets> 
-		
+
+	<fileSets>
+
 		<!-- 把项目的配置文件放config目录 -->
 		<fileSet>
 			<directory>${project.basedir}/src/main/resources</directory>
 			<outputDirectory>config</outputDirectory>
 		</fileSet>
-        
+
 		<fileSet>
 			<directory>${project.basedir}</directory>
 			<outputDirectory></outputDirectory>
@@ -26,12 +26,12 @@
 			</includes>
 		</fileSet>
 	</fileSets>
-	
 
-	
+
+
 	<dependencySets>
 		<dependencySet>
-			<outputDirectory>lib</outputDirectory>			
+			<outputDirectory>lib</outputDirectory>
 		</dependencySet>
 	</dependencySets>
 </assembly>

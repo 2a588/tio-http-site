@@ -8,7 +8,6 @@
 		<groupId>org.t-io</groupId>
 		<artifactId>tio-http-parent</artifactId>
 		<version>3.8.2.v20220628-RELEASE</version>
-		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
 	<dependencies>
@@ -68,9 +67,6 @@
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				 <excludes> 
-                        <exclude>**/*</exclude>
-                    </excludes> 
 				<filtering>false</filtering>
 			</resource>
 		</resources>
@@ -88,9 +84,7 @@
 						<addMavenDescriptor>false</addMavenDescriptor><!-- 生成的jar中，不要包含pom.xml和pom.properties这两个文件 -->
 					</archive>
 
-					<excludes>
-						<exclude>src/main/resources/**/*</exclude>
-					</excludes>
+
 				</configuration>
 			</plugin>
 
@@ -110,7 +104,7 @@
 							<descriptors>
 								<descriptor>script/pkg.xml</descriptor>
 							</descriptors>
-							<outputDirectory>${project.build.directory}/dist/</outputDirectory>
+							<outputDirectory>${project.build.directory}/</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
