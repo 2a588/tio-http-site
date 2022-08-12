@@ -15,15 +15,10 @@ import org.tio.utils.resp.Resp;
 import java.io.File;
 import java.util.Date;
 
-/**
- * ab -k -n1000000 -c10 http://127.0.0.1:8080/json
- * ab -k -n1000000 -c10 http://127.0.0.1:8080/plaintext
- * @author tanyaowu
- * 2017年6月29日 下午7:53:59
- */
-@RequestPath(value = "/showcase")
-public class ShowcaseController {
-	private static Logger log = LoggerFactory.getLogger(ShowcaseController.class);
+
+@RequestPath(value = "/index2")
+public class Index2Controller {
+	private static Logger log = LoggerFactory.getLogger(Index2Controller.class);
 
 	/**
 	 * @param args
@@ -43,18 +38,37 @@ public class ShowcaseController {
 	 *
 	 * @author tanyaowu
 	 */
-	public ShowcaseController() {
+	public Index2Controller() {
+	}
+
+
+	@RequestPath(value = "/")
+	public HttpResponse defult(HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.html(request, html);
+		return ret;
+	}
+
+	@RequestPath(value = "/index")
+	public HttpResponse index(HttpRequest request) throws Exception {
+
+
+
+
+
+		HttpResponse ret = Resps.html(request, html);
+		return ret;
 	}
 
 	@RequestPath(value = "/404")
 	public HttpResponse page404(HttpRequest request) throws Exception {
-		HttpResponse ret = Resps.html(request, "自定义的404 java html not");
+
+		HttpResponse ret = Resps.html(request, "自定义的404");
 		return ret;
 	}
 
 	@RequestPath(value = "/500")
 	public HttpResponse page500(HttpRequest request) throws Exception {
-		HttpResponse ret = Resps.html(request, "自定义的500 自定义的500 java html not");
+		HttpResponse ret = Resps.html(request, "自定义的500");
 		return ret;
 	}
 

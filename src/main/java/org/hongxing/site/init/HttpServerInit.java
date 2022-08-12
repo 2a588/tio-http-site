@@ -1,5 +1,6 @@
 package org.hongxing.site.init;
 
+import org.hongxing.site.service.ShowcaseIpStatListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.common.HttpConfig;
@@ -8,6 +9,7 @@ import org.tio.http.server.handler.DefaultHttpRequestHandler;
 import org.hongxing.site.HttpServerStarter;
 import org.tio.server.TioServerConfig;
 import org.tio.utils.jfinal.P;
+import org.tio.utils.time.Time;
 
 /**
  * @author tanyaowu
@@ -42,6 +44,9 @@ public class HttpServerInit {
 
 		httpServerStarter = new org.tio.http.server.HttpServerStarter(httpConfig, requestHandler);
 		serverTioConfig = httpServerStarter.getTioServerConfig();
+
+		serverTioConfig.setIpStatListener(ShowcaseIpStatListener.me);
+		serverTioConfig.ipStats.addDuration(Time.MINUTE_1 * 5);
 		httpServerStarter.start(); //启动http服务器
 
 //		String protocol = SslUtils.isSsl(serverTioConfig) ? "https" : "http";
