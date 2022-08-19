@@ -8,6 +8,7 @@ import org.tio.http.common.handler.HttpRequestHandler;
 import org.tio.http.server.handler.DefaultHttpRequestHandler;
 import org.hongxing.site.HttpServerStarter;
 import org.tio.server.TioServerConfig;
+import org.tio.utils.SystemTimer;
 import org.tio.utils.jfinal.P;
 import org.tio.utils.time.Time;
 
@@ -28,7 +29,8 @@ public class HttpServerInit {
 	public static TioServerConfig serverTioConfig;
 
 	public static void init() throws Exception {
-		//		long start = SystemTimer.currTime;
+
+		long start = SystemTimer.currTime;
 
 		int port = P.getInt("http.port");//启动端口
 		String pageRoot = P.get("http.page");//html/css/js等的根目录，支持classpath:，也支持绝对路径
@@ -45,21 +47,15 @@ public class HttpServerInit {
 		httpServerStarter = new org.tio.http.server.HttpServerStarter(httpConfig, requestHandler);
 
 		//增加ip包 流量统计功能
-		serverTioConfig = httpServerStarter.getTioServerConfig();
-		serverTioConfig.setIpStatListener(ShowcaseIpStatListener.me);
-		serverTioConfig.ipStats.addDuration(Time.MINUTE_1 * 5);
+//		serverTioConfig = httpServerStarter.getTioServerConfig();
+//		serverTioConfig.setIpStatListener(ShowcaseIpStatListener.me);
+//		serverTioConfig.ipStats.addDuration(Time.MINUTE_1 * 5);
 
+		long end  = SystemTimer.currentTimeMillis();
+		long iv = end - start;
 		httpServerStarter.start(); //启动http服务器
+		log.info("Tio Http Server启动完毕,耗时:{}ms,访问地址:http://127.0.0.1:{}", iv, port);
 
-//		String protocol = SslUtils.isSsl(serverTioConfig) ? "https" : "http";
-
-		//		long end = SystemTimer.currTime;
-		//		long iv = end - start;
-		//		if (log.isInfoEnabled()) {
-		//			log.info("\r\nTio Http Server启动完毕,耗时:{}ms\r\n访问地址:{}://127.0.0.1:{}", iv, protocol, port);
-		//		} else {
-		//			System.out.println("\r\nTio Http Server启动完毕,耗时:" + iv + "ms,\r\n访问地址:" + protocol + "://127.0.0.1:" + port);
-		//		}
 	}
 
 }
