@@ -58,7 +58,7 @@ public class ShowcaseController {
 		return ret;
 	}
 
-	@RequestPath(value = "/abtest")
+	@RequestPath(value = "/abtest22")
 	public HttpResponse abtest(HttpRequest request) throws Exception {
 		HttpResponse ret = Resps.html(request, "OK");
 		return ret;

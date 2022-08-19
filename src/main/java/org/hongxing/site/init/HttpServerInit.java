@@ -43,10 +43,12 @@ public class HttpServerInit {
 		requestHandler = new DefaultHttpRequestHandler(httpConfig, HttpServerStarter.class);//第二个参数也可以是数组
 
 		httpServerStarter = new org.tio.http.server.HttpServerStarter(httpConfig, requestHandler);
-		serverTioConfig = httpServerStarter.getTioServerConfig();
 
+		//增加ip包 流量统计功能
+		serverTioConfig = httpServerStarter.getTioServerConfig();
 		serverTioConfig.setIpStatListener(ShowcaseIpStatListener.me);
 		serverTioConfig.ipStats.addDuration(Time.MINUTE_1 * 5);
+
 		httpServerStarter.start(); //启动http服务器
 
 //		String protocol = SslUtils.isSsl(serverTioConfig) ? "https" : "http";
