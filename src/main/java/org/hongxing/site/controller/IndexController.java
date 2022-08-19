@@ -1,11 +1,18 @@
 package org.hongxing.site.controller;
 
+import com.jfinal.kit.Kv;
+import com.jfinal.template.Engine;
+import com.jfinal.template.Template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
 import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.util.Resps;
+
+import java.awt.desktop.ScreenSleepEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.StringWriter;
 
 
 @RequestPath(value = "/index")
@@ -45,6 +52,22 @@ public class IndexController {
 		return ret;
 	}
 
+	private String getDefualttmp()  throws Exception {
+		Engine engine = Engine.use();
+		engine.setDevMode(true);
+		engine.setToClassPathSourceFactory();
+		Kv kv = Kv.by("key", 123);
+		Template template =  engine.getTemplate("index.html");
+		// 字节流模式输出到 OutputStream
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		template.render(kv, baos);
+		// 字符流模式输出到 StringWriter
+		StringWriter sw = new StringWriter();
+		template.render(kv, sw);
+		// 直接输出到 String 变量
+		String str = template.renderToString(kv);
+		return str;
+	}
 
 	@RequestPath(value = "/")
 	public HttpResponse defult(HttpRequest request) throws Exception {
@@ -54,6 +77,7 @@ public class IndexController {
 
 	@RequestPath(value = "/index.html")
 	public HttpResponse index(HttpRequest request) throws Exception {
+		String index = getDefualttmp();
 		HttpResponse ret = Resps.html(request, html);
 		return ret;
 	}
