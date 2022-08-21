@@ -19,7 +19,7 @@ public class HttpServerStarter {
 	 */
 	public static void main(String[] args) throws Exception {
 
-		P.use("app23.properties");
+		P.use("app1.properties");
 		HttpServerInit.init();
 	}
 

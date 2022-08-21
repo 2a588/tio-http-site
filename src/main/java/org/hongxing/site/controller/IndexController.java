@@ -48,7 +48,10 @@ public class IndexController {
 	@RequestPath(value = "")
 	public HttpResponse defult2(HttpRequest request) throws Exception {
 		String html2 = "index 首页 html index not / ";
-		HttpResponse ret = Resps.html(request, html2);
+		//HttpResponse ret = Resps.html(request, html2);
+
+		String index = getDefualttmp();
+		HttpResponse ret = Resps.html(request, index);
 		return ret;
 	}
 
@@ -57,7 +60,7 @@ public class IndexController {
 		engine.setDevMode(true);
 		engine.setToClassPathSourceFactory();
 		Kv kv = Kv.by("key", 123);
-		Template template =  engine.getTemplate("index.html");
+		Template template =  engine.getTemplate("/page/index3.html");
 		// 字节流模式输出到 OutputStream
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		template.render(kv, baos);
@@ -66,6 +69,7 @@ public class IndexController {
 		template.render(kv, sw);
 		// 直接输出到 String 变量
 		String str = template.renderToString(kv);
+		//String str2 = "txt-index2";
 		return str;
 	}
 
@@ -75,12 +79,7 @@ public class IndexController {
 		return ret;
 	}
 
-	@RequestPath(value = "/index.html")
-	public HttpResponse index(HttpRequest request) throws Exception {
-		String index = getDefualttmp();
-		HttpResponse ret = Resps.html(request, html);
-		return ret;
-	}
+
 
 	 
 }
