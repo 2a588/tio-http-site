@@ -1,6 +1,6 @@
 package org.hongxing.site.init;
 
-import org.hongxing.site.service.ShowcaseIpStatListener;
+import org.hongxing.site.service.SiteIpStatListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.common.HttpConfig;
@@ -47,9 +47,9 @@ public class HttpServerInit {
 		httpServerStarter = new org.tio.http.server.HttpServerStarter(httpConfig, requestHandler);
 
 		//增加ip包 流量统计功能
-//		serverTioConfig = httpServerStarter.getTioServerConfig();
-//		serverTioConfig.setIpStatListener(ShowcaseIpStatListener.me);
-//		serverTioConfig.ipStats.addDuration(Time.MINUTE_1 * 5);
+		serverTioConfig = httpServerStarter.getTioServerConfig();
+		serverTioConfig.setIpStatListener(SiteIpStatListener.me);
+		serverTioConfig.ipStats.addDuration(Time.MINUTE_1 * 5);
 
 		long end  = SystemTimer.currentTimeMillis();
 		long iv = end - start;

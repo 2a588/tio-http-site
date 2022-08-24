@@ -10,11 +10,11 @@ import org.tio.core.stat.IpStatListener;
 import org.tio.utils.json.Json;
 
 //package org.tio.showcase.websocket.server;
-public class ShowcaseIpStatListener implements IpStatListener {
+public class SiteIpStatListener implements IpStatListener {
     @SuppressWarnings("unused")
-    private static Logger log = LoggerFactory.getLogger(ShowcaseIpStatListener.class);
-    public static final ShowcaseIpStatListener me = new ShowcaseIpStatListener();
-    private ShowcaseIpStatListener() {
+    private static Logger log = LoggerFactory.getLogger(SiteIpStatListener.class);
+    public static final SiteIpStatListener me = new SiteIpStatListener();
+    private SiteIpStatListener() {
     }
     @Override
     public void onExpired(TioConfig tioConfig, IpStat ipStat) {

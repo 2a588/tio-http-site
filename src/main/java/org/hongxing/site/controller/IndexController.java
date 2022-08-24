@@ -60,7 +60,8 @@ public class IndexController {
 		engine.setDevMode(true);
 		engine.setToClassPathSourceFactory();
 		Kv kv = Kv.by("key", 123);
-		Template template =  engine.getTemplate("/page/index3.html");
+		//Template template =  engine.getTemplate("/page/index3.html");
+		Template template =  engine.getTemplate("/page/runindex.html");
 		// 字节流模式输出到 OutputStream
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		template.render(kv, baos);
@@ -79,7 +80,10 @@ public class IndexController {
 		return ret;
 	}
 
+	@RequestPath(value = "/search")
+	public HttpResponse post(String before, String end, HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.html(request, "before:" + before + "<br>end:" + end);
+		return ret;
+	}
 
-
-	 
 }
