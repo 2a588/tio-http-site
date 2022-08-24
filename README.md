@@ -7,6 +7,9 @@
  
 
 #初始化
+ubuntu 系统安装 mariadb 
+sudo apt-get install mariadb-plugin-rocksdb
+
 1. 数据库配置在resources\app.properties，请修改密码
 2. 初始化脚本在resources\sql\tio_site.sql，请执行一下
 
