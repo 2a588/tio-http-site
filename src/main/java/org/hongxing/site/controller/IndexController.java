@@ -55,6 +55,8 @@ public class IndexController {
 		return ret;
 	}
 
+
+	//获取html模版并写入字符串
 	private String getDefualttmp()  throws Exception {
 		Engine engine = Engine.use();
 		engine.setDevMode(true);
