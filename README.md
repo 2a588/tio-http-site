@@ -18,7 +18,7 @@ sudo apt-get install mariadb-plugin-rocksdb
 
 ###启动方式二：源代码启动
  
-1. 以普通java程序的方式运行org.tio.site.AppStarter即可，启动时间在1秒内， 如果大于1妙，那可能环境有问题
+1. 以普通java程序的方式运行org.tio.site.AppStarter即可，启动时间在1秒内， 如果大于1秒，那可能环境有问题
 2. 访问[http://127.0.0.1]
  
 #说明
