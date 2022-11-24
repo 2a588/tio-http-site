@@ -1,36 +1,36 @@
 echo off
 echo -
-echo #ÏÂÔØÔ´´úÂë
+echo #ä¸‹è½½æºä»£ç 
 echo mvn dependency:sources
 echo -
 
-echo #ÏÂÔØÔ´´úÂëjar¡£ -DdownloadJavadocs=true ÏÂÔØjavadoc°ü
+echo #ä¸‹è½½æºä»£ç jarã€‚ -DdownloadJavadocs=true ä¸‹è½½javadocåŒ…
 echo -DdownloadSources=true
 echo -
 echo -
 
 
 
-echo #½«jar½âÑ¹³öÀ´
+echo #å°†jarè§£å‹å‡ºæ¥
 echo mvn dependency:unpack-dependencies
 echo -
 
-echo #½«jar¿½±´µ½Ä³Ò»Ä¿Â¼ÖĞ(ËùÓĞjarÔÚÍ¬Ò»Ä¿Â¼ÖĞ)
+echo #å°†jaræ‹·è´åˆ°æŸä¸€ç›®å½•ä¸­(æ‰€æœ‰jaråœ¨åŒä¸€ç›®å½•ä¸­)
 echo mvn dependency:copy-dependencies -Dmdep.useRepositoryLayout=false
 echo -
 
-echo #½«jar°´²Ö¿âÄ¿Â¼¿½±´³öÀ´()
+echo #å°†jaræŒ‰ä»“åº“ç›®å½•æ‹·è´å‡ºæ¥()
 echo mvn dependency:copy-dependencies -Dmdep.useRepositoryLayout=true -Dmdep.copyPom=true
 echo -
 echo -
 
 
 
-echo #¼ì²é°æ±¾¸üĞÂ
+echo #æ£€æŸ¥ç‰ˆæœ¬æ›´æ–°
 echo mvn versions:display-dependency-updates
 echo -
 
-echo #°æ±¾±ä¸ü
+echo #ç‰ˆæœ¬å˜æ›´
 echo mvn versions:set -DnewVersion=4.0.0-talent-999
 echo -
 
