@@ -11,6 +11,8 @@ log/
 .springBeans
 .sts4-cache
 .log
+.classpath
+.project
 LOG_HOME_IS_UNDEFINED/
 
 ### IntelliJ IDEA ###
