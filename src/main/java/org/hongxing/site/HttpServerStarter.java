@@ -18,7 +18,6 @@ public class HttpServerStarter {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws Exception {
-
 		P.use("app1.properties");
 		HttpServerInit.init();
 	}

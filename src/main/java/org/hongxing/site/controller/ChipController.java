@@ -40,16 +40,16 @@ public class ChipController {
 		return ret;
 	}
 
-	@RequestPath(value = "/index")
-	public HttpResponse index(HttpRequest request) throws Exception {
-
-
-
-
-
+	@RequestPath(value = "")
+	public HttpResponse defult2(HttpRequest request) throws Exception {
 		HttpResponse ret = Resps.html(request, html);
 		return ret;
 	}
 
-	 
+	@RequestPath(value = "/index")
+	public HttpResponse index(HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.html(request, html);
+		return ret;
+	}
+
 }

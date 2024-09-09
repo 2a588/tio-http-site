@@ -1,4 +1,4 @@
-package org.hongxing.site.controller;
+package org.hongxing.site.controller.admin;
 
 import com.jfinal.kit.Kv;
 import com.jfinal.template.Engine;
@@ -10,14 +10,13 @@ import org.tio.http.common.HttpResponse;
 import org.tio.http.server.annotation.RequestPath;
 import org.tio.http.server.util.Resps;
 
-import java.awt.desktop.ScreenSleepEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.StringWriter;
 
 
-@RequestPath(value = "/index")
-public class IndexController {
-	private static Logger log = LoggerFactory.getLogger(IndexController.class);
+@RequestPath(value = "/admin")
+public class addContentController {
+	private static Logger log = LoggerFactory.getLogger(addContentController.class);
 
 	/**
 	 * @param args
@@ -48,11 +47,10 @@ public class IndexController {
 
 	@RequestPath(value = "")
 	public HttpResponse defult2(HttpRequest request) throws Exception {
-		String html2 = "index 首页 html index not / ";
+		String html2 = "addcontent--default2 ";
 		//HttpResponse ret = Resps.html(request, html2);
-
 		String index = getDefualttmp();
-		HttpResponse ret = Resps.html(request, index);
+		HttpResponse ret = Resps.html(request, html2);
 		return ret;
 	}
 

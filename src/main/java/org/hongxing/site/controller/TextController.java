@@ -1,19 +1,14 @@
 package org.hongxing.site.controller;
 
+import com.jfinal.kit.Kv;
+import com.jfinal.template.Engine;
+import com.jfinal.template.Template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
-import org.tio.http.common.UploadFile;
 import org.tio.http.server.annotation.RequestPath;
-import org.hongxing.site.model.User;
 import org.tio.http.server.util.Resps;
-import org.tio.utils.hutool.FileUtil;
-import org.tio.utils.json.Json;
-import org.tio.utils.resp.Resp;
-
-import java.io.File;
-import java.util.Date;
 
 
 @RequestPath(value = "/txt")
@@ -50,12 +45,20 @@ public class TextController {
 
 	@RequestPath(value = "/index")
 	public HttpResponse index(HttpRequest request) throws Exception {
-
-
-
-
-
 		HttpResponse ret = Resps.html(request, html);
+		return ret;
+	}
+
+	@RequestPath(value = "/index2")
+	public HttpResponse index2(HttpRequest request) throws Exception {
+		HttpResponse ret = Resps.html(request, html);
+		Engine engine = Engine.create("myEngine");
+		engine.setDevMode(true);
+		engine.setToClassPathSourceFactory();
+		Template template = engine.getTemplate("wxAppMsg.txt");
+		String wxAppMsg = template.renderToString(Kv.by("toUser", "james"));
+
+		engine = Engine.use("myEngine");
 		return ret;
 	}
 
